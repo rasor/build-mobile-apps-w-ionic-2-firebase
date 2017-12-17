@@ -2,6 +2,9 @@ import { NgModule } from '@angular/core';
 import { FormsModule }   from '@angular/forms';
 import { IonicApp, IonicModule } from 'ionic-angular';
 import { AngularFireModule } from 'angularfire2';
+//import { AngularFireDatabaseModule, AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
 import { MyApp } from './app.component';
 import { TimeAgoPipe } from '../pipes/TimeAgoPipe';
 import { TopStoriesPage } from '../pages/top-stories/top-stories';
@@ -32,11 +35,11 @@ export const firebaseConfig = {
   storageBucket: 'hacker-news-ionic2.appspot.com',
 };
 
-const cloudSettings: CloudSettings = {
-  'core': {
-    'app_id': '647e4554',
-  },
-};
+// const cloudSettings: CloudSettings = {
+//   'core': {
+//     'app_id': '647e4554',
+//   },
+// };
 
 @NgModule({
   declarations: [
@@ -54,8 +57,11 @@ const cloudSettings: CloudSettings = {
   ],
   imports: [
     IonicModule.forRoot(MyApp),
-    CloudModule.forRoot(cloudSettings),
+    // CloudModule.forRoot(cloudSettings),
+    // https://github.com/angular/angularfire2/blob/master/docs/version-4-upgrade.md
     AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule,
     FormsModule,
   ],
   bootstrap: [IonicApp],

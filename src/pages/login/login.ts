@@ -7,7 +7,9 @@ import {
   ViewController,
 } from 'ionic-angular';
 import * as firebase from 'firebase';
-import { AuthProviders } from 'angularfire2';
+// https://stackoverflow.com/a/43777940/750989
+//import { AngularFireAuth } from 'angularfire2/auth';
+//import { AuthProviders } from 'angularfire2';
 import { SignupPage } from '../../pages/signup/signup';
 import { User } from "../../model/User";
 import { AuthService } from "../../services/AuthService";
